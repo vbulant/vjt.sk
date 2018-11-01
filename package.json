@@ -1,0 +1,14 @@
+{
+	"scripts": {
+		"start": "serve"
+	},
+	"dependencies": {
+		"granim": "^1.1.1",
+		"serve": "latest"
+	},
+	"now": {
+		"alias": [
+			"vjt.sk"
+		]
+	}
+}

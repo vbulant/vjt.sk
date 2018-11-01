@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>vjt.sk</title>
+<style>
+	body {
+		margin: 0;
+		height: 100vh;
+		background: black;
+	}
+
+	body {
+		display: flex;
+	}
+
+	canvas {
+		flex: 1 1 100%;
+	}
+</style>
+
+<canvas id="vjtsk"></canvas>
+
+<script src="https://unpkg.com/granim@1.1.1/dist/granim.min.js"></script>
+<script>
+	new Granim({
+		direction: 'top-bottom',
+		element: '#vjtsk',
+		image : {
+			blendingMode: 'multiply',
+			position: ['center', 'center'],
+			source: './bg.jpg'
+		},
+		opacity: [1, 1],
+		states : {
+			'default-state': {
+				gradients: [
+					['#80aaff', '#e699ff'],
+					['#8cd9b3', '#ff944d'],
+					['#ffaa80', '#ff8080'],
+					['#ffff80', '#80ffff'],
+				]
+			}
+		}
+	});
+</script>
