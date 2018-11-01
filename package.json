@@ -9,6 +9,7 @@
 	"now": {
 		"alias": [
 			"vjt.sk"
-		]
+		],
+		"public": true
 	}
 }
