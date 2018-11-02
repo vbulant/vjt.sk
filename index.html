@@ -2,50 +2,36 @@
 <meta charset="utf-8">
 <title>vjt.sk</title>
 <style>
-	body {
-		margin: 0;
-		height: 100vh;
+	html {
+		height: 100%;
 		background: black;
 	}
 
 	body {
-		display: flex;
+		margin: 0;
+		height: 100%;
+		/* background: repeat-y, no-repeat; */
+		background-image:
+			linear-gradient(to bottom, #80aaff 0%,#e699ff 15%,#8cd9b3 29%,#ff944d 44%,#ff8080 59%,#ffff80 73%,#80ffff 87%,#80aaff 100%),
+			url(markos-mant-580527-unsplash.jpg);
+		background-size: auto 2000vh, cover;
+		background-position: 0 0, 50% 50%;
+		background-blend-mode: color;
+		animation: gradient 20s linear infinite;
+		opacity: 0;
+		transition: 5s opacity cubic-bezier(0.215, 0.61, 0.355, 1);
 	}
 
-	canvas {
-		flex: 1 1 100%;
-		opacity: 0;
-		transition: opacity 3s cubic-bezier(0.215, 0.61, 0.355, 1);
+	@keyframes gradient {
+		from { background-position: 0 0, 50% 50%; }
+		to   { background-position: 0 -2000vh, 50% 50%; }
 	}
 </style>
 
 <canvas id="vjtsk"></canvas>
 
-<script src="https://unpkg.com/granim@1.1.1/dist/granim.min.js"></script>
 <script>
-	new Granim({
-		direction: 'top-bottom',
-		element: '#vjtsk',
-		image : {
-			blendingMode: 'multiply',
-			position: ['center', 'center'],
-			source: './markos-mant-580527-unsplash.jpg'
-		},
-		onStart: function() {
-			document.getElementById('vjtsk').style.opacity = 1;
-		},
-		opacity: [1, 1],
-		states : {
-			'default-state': {
-				gradients: [
-					['#80aaff', '#e699ff'],
-					['#8cd9b3', '#ff944d'],
-					['#ffaa80', '#ff8080'],
-					['#ffff80', '#80ffff'],
-				]
-			}
-		},
-		stretchMode: ['stretch-if-smaller', 'stretch-if-smaller'],
-	});
-
+	window.onload = function() {
+		document.body.style.opacity = 1;
+	};
 </script>
