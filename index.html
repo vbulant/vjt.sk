@@ -41,16 +41,22 @@
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		transform: translate(-50%, -50%);
 		z-index: 1;
+		transform: translate(-50%, -50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		margin: 0;
 		font-size: 1rem;
-		border: 3px solid;
-		padding: .5rem .75rem;
-		color: black;
-		opacity: .9;
+		border: .1875rem solid;
+		border-radius: 50%;
+		width: 6rem;
+		height: 6rem;
+		color: white;
+		opacity: .75;
 		filter: blur(.5rem);
 		transition: 2s filter cubic-bezier(0.215, 0.61, 0.355, 1);
+		mix-blend-mode: overlay;
 	}
 
 	.snowflake {
