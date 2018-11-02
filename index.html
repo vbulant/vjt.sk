@@ -8,18 +8,15 @@
 	}
 
 	body {
-		margin: 0;
 		height: 100%;
-		/* background: repeat-y, no-repeat; */
-		background-image:
-			linear-gradient(to bottom, #80aaff 0%,#e699ff 15%,#8cd9b3 29%,#ff944d 44%,#ff8080 59%,#ffff80 73%,#80ffff 87%,#80aaff 100%),
-			url(markos-mant-580527-unsplash.jpg);
-		background-size: auto 2000vh, cover;
-		background-position: 0 0, 50% 50%;
+		margin: 0;
+		background:
+			linear-gradient(to bottom, #80aaff 0%,#e699ff 15%,#8cd9b3 29%,#ff944d 44%,#ff8080 59%,#ffff80 73%,#80ffff 87%,#80aaff 100%) 0 0 / auto 2000vh repeat-y,
+			url(markos-mant-580527-unsplash.jpg) 50% 50% / cover no-repeat;
 		background-blend-mode: color;
 		animation: gradient 20s linear infinite;
-		opacity: 0;
 		transition: 5s opacity cubic-bezier(0.215, 0.61, 0.355, 1);
+		opacity: 0;
 	}
 
 	@keyframes gradient {
