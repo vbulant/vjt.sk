@@ -3,110 +3,110 @@
 <meta name="viewport" content="width=600, initial-scale=1">
 <title>vjt.sk</title>
 <style>
-	@keyframes gradient {
-		from { background-position: 0 0, 50% 50%; }
-		to   { background-position: 0 -2000vh, 50% 50%; }
-	}
+  @keyframes gradient {
+    from { background-position: 0 0, 50% 50%; }
+    to   { background-position: 0 -2000vh, 50% 50%; }
+  }
 
-	@keyframes fall {
-		from { transform: translateY(0); opacity: 1; }
-		to   { transform: translateY(100vh); opacity: 0; }
-	}
+  @keyframes fall {
+    from { transform: translateY(0); opacity: 1; }
+    to   { transform: translateY(100vh); opacity: 0; }
+  }
 
-	html, body {
-		height: 100%;
-		overflow: hidden;
-		background: black;
-	}
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: black;
+  }
 
-	body {
-		margin: 0;
-		font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
-		background: url(markos-mant-580527-unsplash.jpg) 50% 50% / cover no-repeat;
-		opacity: 0;
-		transition: 5s opacity cubic-bezier(0.215, 0.61, 0.355, 1);
-	}
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+    background: url(markos-mant-580527-unsplash.jpg) 50% 50% / cover no-repeat;
+    opacity: 0;
+    transition: 5s opacity cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 
-	#scene {
-		height: 100%;
-		background:
-			linear-gradient(to bottom, #80aaff 0%,#e699ff 15%,#8cd9b3 29%,#ff944d 44%,#ff8080 59%,#ffff80 73%,#80ffff 87%,#80aaff 100%) 0 0 / auto 2000vh repeat-y,
-			url(markos-mant-580527-unsplash.jpg) 50% 50% / cover no-repeat;
-		background-blend-mode: color;
-		animation: gradient 20s linear infinite;
-		transition: 5s opacity cubic-bezier(0.215, 0.61, 0.355, 1);
-		opacity: 0;
-	}
+  #scene {
+    height: 100%;
+    background:
+      linear-gradient(to bottom, #80aaff 0%,#e699ff 15%,#8cd9b3 29%,#ff944d 44%,#ff8080 59%,#ffff80 73%,#80ffff 87%,#80aaff 100%) 0 0 / auto 2000vh repeat-y,
+      url(markos-mant-580527-unsplash.jpg) 50% 50% / cover no-repeat;
+    background-blend-mode: color;
+    animation: gradient 20s linear infinite;
+    transition: 5s opacity cubic-bezier(0.215, 0.61, 0.355, 1);
+    opacity: 0;
+  }
 
-	#title {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		z-index: 1;
-		transform: translate(-50%, -50%);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: 0;
-		font-size: 1rem;
-		border: .1875rem solid;
-		border-radius: 50%;
-		width: 6rem;
-		height: 6rem;
-		color: white;
-		opacity: .75;
-		filter: blur(.5rem);
-		transition: 2s filter cubic-bezier(0.215, 0.61, 0.355, 1);
-		mix-blend-mode: overlay;
-	}
+  #title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 1rem;
+    border: .1875rem solid;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    color: white;
+    opacity: .75;
+    filter: blur(.5rem);
+    transition: 2s filter cubic-bezier(0.215, 0.61, 0.355, 1);
+    mix-blend-mode: overlay;
+  }
 
-	.snowflake {
-		width: 5px;
-		height: 5px;
-		background: white;
-		border-radius: 50%;
-		position: absolute;
-		top: -5px;
-		animation: fall linear infinite;
-		mix-blend-mode: overlay;
-	}
+  .snowflake {
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    animation: fall linear infinite;
+    mix-blend-mode: overlay;
+  }
 </style>
 <div id="scene"></div>
 <h1 id="title">VJTSK</h1>
 <script>
-	var SNOWFLAKES_COUNT = 100;
+  var SNOWFLAKES_COUNT = 100;
 
-	function randomPercentage() {
-		return Math.floor(Math.random() * 100) + 1 + '%';
-	}
+  function randomPercentage() {
+    return Math.floor(Math.random() * 100) + 1 + '%';
+  }
 
-	function randomBetween(min, max) {
-		return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
+  function randomBetween(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
-	function renderSnowflake(el) {
-		var flake = document.createElement('span');
-		var size = randomBetween(2, 5);
-		var animationDuration = randomBetween(250, 5000) + 'ms'
-		var blur = randomBetween(0, 2);
-		flake.className = 'snowflake';
-		flake.style.left = randomPercentage();
-		flake.style.animationDuration = animationDuration;
-		flake.style.width = size + 'px';
-		flake.style.height = size + 'px';
-		flake.style.filter = 'blur(' + blur + 'px)';
-		el.appendChild(flake);
-	}
+  function renderSnowflake(el) {
+    var flake = document.createElement('span');
+    var size = randomBetween(2, 5);
+    var animationDuration = randomBetween(250, 5000) + 'ms'
+    var blur = randomBetween(0, 2);
+    flake.className = 'snowflake';
+    flake.style.left = randomPercentage();
+    flake.style.animationDuration = animationDuration;
+    flake.style.width = size + 'px';
+    flake.style.height = size + 'px';
+    flake.style.filter = 'blur(' + blur + 'px)';
+    el.appendChild(flake);
+  }
 
-	function renderSnowflakes() {
-		var el = document.body;
-		for (var i = 0; i < SNOWFLAKES_COUNT; i++) renderSnowflake(el);
-	}
+  function renderSnowflakes() {
+    var el = document.body;
+    for (var i = 0; i < SNOWFLAKES_COUNT; i++) renderSnowflake(el);
+  }
 
-	window.onload = function() {
-		renderSnowflakes();
-		document.body.style.opacity = 1;
-		document.getElementById('scene').style.opacity = 0.35;
-		document.getElementById('title').style.filter = 'blur(0)';
-	};
+  window.onload = function() {
+    renderSnowflakes();
+    document.body.style.opacity = 1;
+    document.getElementById('scene').style.opacity = 0.35;
+    document.getElementById('title').style.filter = 'blur(0)';
+  };
 </script>
