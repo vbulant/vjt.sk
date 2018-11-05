@@ -1,14 +1,27 @@
 @keyframes gradient {
-  from { background-position: 0 0, 50% 50%; }
-  to   { background-position: 0 -2000vh, 50% 50%; }
+  from {
+    background-position: 0 0, 50% 50%;
+  }
+
+  to {
+    background-position: 0 -2000vh, 50% 50%;
+  }
 }
 
 @keyframes fall {
-  from { transform: translateY(0); opacity: 1; }
-  to   { transform: translateY(100vh); opacity: 0; }
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
-html, body {
+html,
+body {
   height: 100%;
   overflow: hidden;
   background: black;
@@ -18,14 +31,14 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
   background: url(markos-mant-580527-unsplash.jpg) 50% 50% / cover no-repeat;
-  opacity: 0;
+  /* opacity: 0; */
   transition: 5s opacity cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 #scene {
   height: 100%;
   background:
-    linear-gradient(to bottom, #80aaff 0%,#e699ff 15%,#8cd9b3 29%,#ff944d 44%,#ff8080 59%,#ffff80 73%,#80ffff 87%,#80aaff 100%) 0 0 / auto 2000vh repeat-y,
+    linear-gradient(to bottom, #80aaff 0%, #e699ff 15%, #8cd9b3 29%, #ff944d 44%, #ff8080 59%, #ffff80 73%, #80ffff 87%, #80aaff 100%) 0 0 / auto 2000vh repeat-y,
     url(markos-mant-580527-unsplash.jpg) 50% 50% / cover no-repeat;
   background-blend-mode: color;
   animation: gradient 20s linear infinite;
